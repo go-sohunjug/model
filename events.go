@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/go-sohunjug/quant/v1/indicator"
+	"github.com/go-sohunjug/indicator"
 )
 
 // Events
