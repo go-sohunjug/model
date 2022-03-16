@@ -1,5 +1,7 @@
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/go-sohunjug/indicator v1.0.0 h1:GeoqJnxaa2OeGtKvpW6EgCd51MIBPjE/aK8JJgEoJLo=
+github.com/go-sohunjug/indicator v1.0.0/go.mod h1:GLlgiKDkKUO7V24q2TS0Csr7VnZ4Gv2IlySHGOOY/oA=
 github.com/go-sohunjug/logger v1.0.1 h1:9eCgMOch4dnsEXH/Q9CzgJ6zt7mLZISGxuiFiWf/bSA=
 github.com/go-sohunjug/logger v1.0.1/go.mod h1:tM/IqE5EL9CLi8eRZPih0ZFf1zxi4UBUF6yRQmZE7Fw=
 github.com/google/go-cmp v0.5.5 h1:Khx7svrCpmxxtHBq5j2mp/xVjsi8hQMfNLvJFAlrGgU=

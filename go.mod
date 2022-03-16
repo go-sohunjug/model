@@ -3,6 +3,7 @@ module github.com/go-sohunjug/model
 go 1.18
 
 require (
+	github.com/go-sohunjug/indicator v1.0.0
 	github.com/go-sohunjug/logger v1.0.1
 	github.com/mitchellh/mapstructure v1.4.3
 )
