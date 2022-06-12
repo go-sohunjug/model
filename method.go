@@ -1,5 +1,9 @@
 package model
 
+import (
+	"strings"
+)
+
 var (
 	Sharp = map[string]string{
 		"spot": "C",
@@ -11,3 +15,8 @@ var (
 		"margin": "M",
 	}
 )
+
+func GetSharp(name string) string {
+	return Sharp[strings.ToLower(name)]
+}
+
