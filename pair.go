@@ -1,6 +1,7 @@
 package model
 
 import (
+	"math"
 	"strings"
 	"time"
 )
@@ -14,8 +15,10 @@ type CurrencyPair struct {
 	Dot            string
 	ContractType   string
 	DeliveryDate   time.Time
-	AmountTickSize int // 下单量精度
-	PriceTickSize  int //交易对价格精度
+	MinAmountTick  float64 // 下单量精度
+	MinPriceTick   float64 //交易对价格精度
+	AmountTickSize int     // 下单量精度
+	PriceTickSize  int     //交易对价格精度
 }
 
 func (pair *CurrencyPair) SetDot(dot string) {
@@ -66,11 +69,13 @@ func NewCurrencyPairSep(currencyPairSymbol string, sep string) *CurrencyPair {
 
 func (pair *CurrencyPair) SetAmountTickSize(tickSize int) *CurrencyPair {
 	pair.AmountTickSize = tickSize
+	pair.MinAmountTick = math.Pow10(-tickSize)
 	return pair
 }
 
 func (pair *CurrencyPair) SetPriceTickSize(tickSize int) *CurrencyPair {
 	pair.PriceTickSize = tickSize
+	pair.MinPriceTick = math.Pow10(-tickSize)
 	return pair
 }
 
@@ -130,3 +135,4 @@ func (pair *CurrencyPair) Reverse() *CurrencyPair {
 		PriceTickSize:  pair.PriceTickSize,
 	}
 }
+
