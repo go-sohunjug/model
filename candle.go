@@ -16,7 +16,7 @@ var Log = logger.NewHelper(logger.With(DefaultLogger, "module", "quant/model"))
 type Candle struct {
 	Symbol    CurrencyPair
 	Timestamp int64
-	Interval  string
+	Interval  int64
 	Open      float64
 	High      float64
 	Low       float64
