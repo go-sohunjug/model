@@ -14,7 +14,22 @@ import (
 var Log = logger.NewHelper(logger.With(DefaultLogger, "module", "quant/model"))
 
 type Candle struct {
-	Symbol    CurrencyPair
+	Symbol    *CurrencyPair
+	Timestamp int64
+	Interval  int64
+	Open      float64
+	High      float64
+	Low       float64
+	Close     float64
+	BaseVol   float64
+	QuoteVol  float64
+	Date      time.Time
+}
+
+type MsgCandle struct {
+	Symbol    string `json:"symbol,string"`
+	Exchange  string `json:"exchange,string"`
+	Method    string `json:"method,string"`
 	Timestamp int64
 	Interval  int64
 	Open      float64
@@ -118,6 +133,7 @@ func (d *ParamData) GetString(key string) string {
 	}
 	return ""
 }
+
 func (d *ParamData) GetBool(key string) bool {
 	v, ok := d.Load(key)
 	if !ok {
@@ -131,6 +147,7 @@ func (d *ParamData) GetBool(key string) bool {
 	}
 	return false
 }
+
 func (d *ParamData) GetInt(key string) int {
 	v, ok := d.Load(key)
 	if !ok {
@@ -148,6 +165,7 @@ func (d *ParamData) GetInt(key string) int {
 	}
 	return 0
 }
+
 func (d *ParamData) GetFloat(key string) float64 {
 	v, ok := d.Load(key)
 	if !ok {
@@ -165,6 +183,7 @@ func (d *ParamData) GetFloat(key string) float64 {
 	}
 	return 0
 }
+
 func (d *ParamData) Pack() string {
 	params := make(map[string]any)
 	d.Range(func(key, value any) bool {

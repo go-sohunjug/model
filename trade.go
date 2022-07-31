@@ -5,10 +5,12 @@ import (
 	"time"
 )
 
-type TradeSide int
-type TradeType int
-type TradeAct int
-type Direction int
+type (
+	TradeSide int
+	TradeType int
+	TradeAct  int
+	Direction int
+)
 
 const (
 	Long  Direction = 1
@@ -16,6 +18,7 @@ const (
 )
 
 const (
+	Query  TradeAct = 1 << 1
 	Cancel TradeAct = 1 << 2
 	Limit  TradeAct = 1 << 3
 	Market TradeAct = 1 << 4
@@ -108,8 +111,23 @@ type Trade struct {
 	Remark    string
 }
 
+type MsgTrade struct {
+	Symbol    string    `json:"symbol,string"`
+	Exchange  string    `json:"exchange,string"`
+	Method    string    `json:"method,string"`
+	Tid       int64     `json:"tid"`
+	Type      TradeSide `json:"type"`
+	Amount    float64   `json:"amount,string"`
+	Price     float64   `json:"price,string"`
+	Timestamp int64     `json:"date_ms"`
+	Date      time.Time
+	Side      string
+	Remark    string
+}
+
 // TradeAction trade action
 type TradeAction struct {
+	NickName   string
 	Symbol     CurrencyPair
 	Action     TradeType
 	Amount     float64
@@ -118,6 +136,7 @@ type TradeAction struct {
 	OrderID    string
 	IsClientID bool
 	Timestamp  int64
+	Async      bool
 }
 
 func (a TradeType) IsLong() bool {
@@ -163,7 +182,6 @@ func (a TradeType) Side() (ret string) {
 		ret += "S"
 	}
 	return
-
 }
 
 func (a TradeType) String() (ret string) {

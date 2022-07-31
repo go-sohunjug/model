@@ -8,11 +8,23 @@ type DepthRecord struct {
 	Total  float64
 }
 
-type Depth Orderbook
-type DepthRecords []DepthRecord
+type (
+	Depth        Orderbook
+	DepthRecords []DepthRecord
+)
 
 type Orderbook struct {
 	Symbol    CurrencyPair
+	Asks      DepthRecords
+	Bids      DepthRecords
+	Timestamp int64
+	Date      time.Time
+}
+
+type MsgOrderbook struct {
+	Symbol    string
+	Exchange  string
+	Method    string
 	Asks      DepthRecords
 	Bids      DepthRecords
 	Timestamp int64
@@ -30,5 +42,3 @@ func (dr DepthRecords) Swap(i, j int) {
 func (dr DepthRecords) Less(i, j int) bool {
 	return dr[i].Price < dr[j].Price
 }
-
-
