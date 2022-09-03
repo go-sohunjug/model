@@ -14,15 +14,15 @@ import (
 var Log = logger.NewHelper(logger.With(DefaultLogger, "module", "quant/model"))
 
 type Candle struct {
-	Symbol    *CurrencyPair
-	Timestamp int64
-	Interval  int64
-	Open      float64
-	High      float64
-	Low       float64
-	Close     float64
-	BaseVol   float64
-	QuoteVol  float64
+	Symbol    *CurrencyPair `json:"symbol,string"`
+	Timestamp int64         `json:"timestamp,int64"`
+	Interval  int64         `json:"interval,int64"`
+	Open      float64       `json:"open"`
+	High      float64       `json:"high"`
+	Low       float64       `json:"low"`
+	Close     float64       `json:"close"`
+	BaseVol   float64       `json:"base_vol"`
+	QuoteVol  float64       `json:"quote_vol"`
 	Date      time.Time
 }
 
