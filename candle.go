@@ -15,8 +15,8 @@ var Log = logger.NewHelper(logger.With(DefaultLogger, "module", "quant/model"))
 
 type Candle struct {
 	Symbol    *CurrencyPair `json:"symbol,string"`
-	Timestamp int64         `json:"timestamp,int64"`
-	Interval  int64         `json:"interval,int64"`
+	Timestamp int64         `json:"timestamp"`
+	Interval  int64         `json:"interval"`
 	Open      float64       `json:"open"`
 	High      float64       `json:"high"`
 	Low       float64       `json:"low"`
@@ -27,11 +27,11 @@ type Candle struct {
 }
 
 type MsgCandle struct {
-	Symbol    string  `json:"symbol,string"`
-	Exchange  string  `json:"exchange,string"`
-	Method    string  `json:"method,string"`
-	Timestamp int64   `json:"timestamp,int64"`
-	Interval  string  `json:"interval,string"`
+	Symbol    string  `json:"symbol"`
+	Exchange  string  `json:"exchange"`
+	Method    string  `json:"method"`
+	Timestamp int64   `json:"timestamp"`
+	Interval  string  `json:"interval"`
 	Open      float64 `json:"open"`
 	High      float64 `json:"high"`
 	Low       float64 `json:"low"`
