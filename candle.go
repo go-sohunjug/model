@@ -27,17 +27,17 @@ type Candle struct {
 }
 
 type MsgCandle struct {
-	Symbol    string `json:"symbol,string"`
-	Exchange  string `json:"exchange,string"`
-	Method    string `json:"method,string"`
-	Timestamp int64
-	Interval  int64
-	Open      float64
-	High      float64
-	Low       float64
-	Close     float64
-	BaseVol   float64
-	QuoteVol  float64
+	Symbol    string  `json:"symbol,string"`
+	Exchange  string  `json:"exchange,string"`
+	Method    string  `json:"method,string"`
+	Timestamp int64   `json:"timestamp,int64"`
+	Interval  string  `json:"interval,string"`
+	Open      float64 `json:"open"`
+	High      float64 `json:"high"`
+	Low       float64 `json:"low"`
+	Close     float64 `json:"close"`
+	BaseVol   float64 `json:"base_vol"`
+	QuoteVol  float64 `json:"quote_vol"`
 	Date      time.Time
 }
 
